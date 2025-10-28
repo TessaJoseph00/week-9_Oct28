@@ -5,12 +5,7 @@ from apputil import GroupEstimate
 def main():
     """Run group-based estimation on the coffee dataset."""
 
-    # Load dataset from GitHub
-    url = (
-        "https://raw.githubusercontent.com/leontoddjohnson/"
-        "datasets/refs/heads/main/data/coffee_analysis.csv"
-    )
-    df = pd.read_csv(url)
+    df = pd.read_csv("coffee_analysis.csv")
 
     # Select predictors (categorical features) and target (continuous variable)
     X = df[["loc_country", "roast"]]
