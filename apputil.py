@@ -73,9 +73,9 @@ class GroupEstimate:
 
         Returns
         -------
-        list
+        np.ndarray
             Predicted mean or median values for each observation.
-            If a group is missing, NaN is returned for that case.
+            If a group is missing, np.nan is returned for that case.
         """
         X_ = pd.DataFrame(X_, columns=self.group_estimates.index.names)
         results = []
@@ -109,4 +109,5 @@ class GroupEstimate:
             print(f"{missing_count} group(s) were missing; returned NaN for those.")
 
         # Return as plain floats (not np.float64)
-        return [float(r) if not pd.isna(r) else np.nan for r in results]
+        return np.array([float(r) if not pd.isna(r) else np.nan for r in results])
+
